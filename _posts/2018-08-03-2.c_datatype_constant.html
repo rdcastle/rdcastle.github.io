@@ -1,0 +1,44 @@
+---
+layout: post
+title: "C언어 자료형 - 상수"
+subtitle: ""
+date: 2018-08-02
+author: RDcastle
+category: C
+tags:
+finished: true
+---
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>상수(Constant)</h1>
+    <h3>상수 : 상수는 변하지 않는 고정된 값을 의미</h3>
+    <p>관례적으로 상수 표현 시에는 '모든 문자를 대문자로'표현하고, '단어는 언더바(_)'로 구분한다.<br>
+    최초에 변수 초기화 시 주로 사용되는데, 상수는 특정 장소에 영구적으로 저장되지 않기 때문에 변수에 저장하는 과정이 필요하다.
+    이때, 선언하는 변수와 대입하고자 하는 상수의 자료형이 일치해야 오류가 없다.</p>
+    <p>자료형과 관련해서, 특정한 표기가 없다면 정수형 상수는 int 형 상수를 의미하고 실수형 상수는 double 형을 의미한다.<br>
+    만약 다른 자료형으로 상수를 사용하고 싶다면, 의미에 맞는 접미사를 붙여준다</p>
+    <ul>
+      <li>정수  - 접미사 U == unsigned int, L == long, UL == unsigned long,</li>
+      <li>      - 접미사 LL == long long, ULL == unsigned long long</li>
+      <li>실수  - 접미사 F == float, L == long double</li>
+    </ul>
+    <h3>Literal 상수</h3>
+    <p>문자 그대로 이름이 특정되지 않은 일반적인 상수를 생각하면 된다. 상수도 분명히 존재하는(곧 휘발되겠지만) 데이터이므로
+    메모리에서 특정 공간을 차지한다. CPU는 연산을 위해 이러한 상수를 불러와 연산을 수행하고 변수에 저장하기도 한다.</p>
+    <h3>Symbolic 상수</h3>
+    <p>특정한 이름을 지니는 상수로, [const 상수] 형태로 선언한다. 불변하는 상수로 선언했기 때문에 초기화 이후 변경이 불가하다</p>
+    <ul>
+      <li>const int MAX = 100;</li>
+      <li>const double PI = 3.1415;</li>
+    </ul>
+    <p>또다른 정의방식은 매크로를 사용하는 것인데, 전역적 개념으로 최상단에 선언해주면 된다</p>
+    <ul>
+      <li>#define MAX = 3;</li>
+    </ul>
+    <p>이런 식으로 선언해두면 하위의 모든 영역에서 MAX 는 불변의 '3'으로 사용된다</p>
+  </body>
+</html>
