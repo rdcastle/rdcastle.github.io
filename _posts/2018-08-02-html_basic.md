@@ -4,7 +4,7 @@ title: "html_basic"
 subtitle: ""
 date: 2018-08-02
 author: RDcastle
-category: html
+category: HTML
 tags:
 finished: true
 ---
@@ -23,6 +23,7 @@ finished: true
   - 브라우저가 웹서버에 메인 페이지 호출하면,
   - 웹서버는 가장 먼저 index.html 파일을 읽어들여 브라우저에 전송한다
   - 브라우저는 HTML 문법에 따라 해석하여 페이지 출력
+  - 코드작성 시 가독성을 위한 노력은 필수!(들여쓰기!!)
 
 > 기본문법
 
