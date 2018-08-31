@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Form2"
+title: "Form_input"
 subtitle:
 date: 2018-08-31
 author: RDcastle
@@ -9,33 +9,40 @@ finished: true
 ---
 
 <html>
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <h3>input 태그</h3>
-    <p>사용자 입력을 받아들이는 태그. 다양한 속성이 존재하며, 그 중 type 속성은 다양한 input 형태를 구현한다.</p>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <h3>input 태그</h3>
+  <p>사용자 입력을 받아들이는 태그. 다양한 속성이 존재하며, 그 중 type 속성은 다양한 input 형태를 구현한다.</p>
+  <ul>
+    <li> type : text, radio, checkbox, password, button, hidden, fileupload, submit, reset ...</li>
+    <p>위와 같은 속성값을 가지며, 각각의 속성값은 input 태그의 의미나 형태를 규정한다</p>
     <ul>
-      <li> type : text, radio, checkbox, password, button, hidden, fileupload, submit, reset ...</li>
-        <p>위와 같은 속성값을 가지며, 각각의 속성값은 input 태그의 의미나 형태를 규정한다</p>
-        <ul>
-          <li> text : <input type="text"></li>
-          <li> radio : <input type="radio"></li>
-          <li> checkbox : <input type="checkbox"></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li> text : <input type="text"></li>
+      <li> radio : <input name="radio" id="radio_1" type="radio"><input name="radio" id="radio_2" type="radio"><input name="radio" id="radio_3" type="radio"></li>
+      <p><label for="radio_1">radio_1</label><label for="radio_2">radio_2</label><label for="radio_3">radio_3</label></p>
+      <li> checkbox : <input type="checkbox"></li>
+      <li> password : <input type="password"></li>
+      <li> button : <input type="button"></li>
+      <li> hidden : <input type="hidden"></li>
+      <li> fileupload : <input type="fileupload"></li>
+      <li> submit : <input type="submit"></li>
+      <li> reset : <input type="reset"></li>
     </ul>
-  </body>
+  </ul>
+  <p>그 외에도 input 태그를 표현하는 다양한 속성들이 있다</p>
+  <ul>
+    <li> name : 태그 이름 지정</li>
+    <li> readonly : 읽기 전용으로</li>
+    <li> maxlength : 최대 글자 수 지정</li>
+    <li> required : 해당 태그가 필수태그로 지정됨. 이것을 입력하지 않고 submit 하면 에러메시지 출력됨(HTML5)</li>
+    <li> autofocus : 웹 페이지가 로딩되자마자 해당 태그로 포커스 이동(HTML5)</li>
+    <li> placeholder : 태그에 입력할 값에 대한 힌트(HTML5)</li>
+    <li> pattern : 정규표현식 사용, 유효한 값을 지정(HTML5)</li>
+    <p> 주민번호 : <input type="text" placeholder="123456-1234567" name="Primary_num" pattern="\d{6}\-\d{7}" title="123456-1234567 형식"></p>
+  </ul>
+</body>
 </html>
