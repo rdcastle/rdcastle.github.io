@@ -1,0 +1,63 @@
+---
+layout: post
+title: "Form_DropdownList"
+subtitle:
+date: 2018-09-01
+author: RDcastle
+category: HTML
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <h3>Dropdown List</h3>
+  <p>사용자가 여러 개의 선택 사항 중 하나를 택하도록 하는 태그<br>
+  각각의 선택사항은 'option' 태그로 묶으며, 서로 연관된 option 들은 li 를 ol 이나 ul 로 묶는 것처럼 'select' 태그로 묶는다
+  이때, 선택된 정보가 무엇을 의미하는지 알려주기 위해 select 태그에 name 속성을 사용하고, 선택 정보에 관해 보다 구체적인
+  의미를 부여하기 위해 option 태그에 value 속성을 부여한다.</p>
+  <p>예를 들어 '색상선택' 문항이라면, select 에는 선택된 정보가 색상과 관련되었다는 의미의 name="color" 속성을 부여하고,
+  option 에는 그것이 구체적으로 무슨 색인지를 알려주기 위해 value="red", value="black", value="white" 과 같이 속성 부여한다</p>
+  <p>이렇게 의미론적으로 구성된 드롭다운 선택문항은 form 태그로 묶어 전송하고자 하는 페이지로 보낸다</p>
+  <p>추가적으로 select 태그에 multiple 속성을 부여하면 다중선택이 가능하다</p>
+  <p>사용 예<br>
+    <pre><code>
+      &lt;form action="http://localhost/index.html"&gt;
+        &lt;h1&gt;색상&lt;/h1&gt;
+        &lt;select name="color" id=""&gt;
+          &lt;option value="red"&gt;붉은색&lt;/option&gt;
+          &lt;option value="black"&gt;검정색&lt;/option&gt;
+          &lt;option value="white"&gt;하얀색&lt;/option&gt;
+        &lt;/select>
+        &lt;h1&gt;색상2 (multiple)&lt;/h1&gt;
+        &lt;select name="color2" id="" multiple&gt;
+          &lt;option value="red"&gt;붉은색&lt;/option&gt;
+          &lt;option value="black"&gt;검정색&lt;/option&gt;
+          &lt;option value="white"&gt;하얀색&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type="submit"&gt;
+      &lt;/form&gt;
+    </code></pre>
+    <form action="http://localhost/index.html">
+      <h1>색상</h1>
+      <select name="color" id="">
+        <option value="red">붉은색</option>
+        <option value="black">검정색</option>
+        <option value="white">하얀색</option>
+      </select>
+      <h1>색상2 (multiple)</h1>
+      <select name="color2" id="" multiple>
+        <option value="red">붉은색</option>
+        <option value="black">검정색</option>
+        <option value="white">하얀색</option>
+      </select>
+      <input type="submit">
+    </form>
+  </p>
+</body>
+
+</html>
