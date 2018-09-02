@@ -1,0 +1,47 @@
+---
+layout: post
+title: "Form_FileUpload"
+subtitle:
+date: 2018-09-01
+author: RDcastle
+category: HTML
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <h3>form tag -> input -> type="file"</h3>
+  <p>input 태그의 type 속성 중의 하나이다. 정해진 경로의 서버로 파일을 선택하여 전송하기 위한 기능.
+  선택하고 나면 파일명이 옆에 나타난다.</p>
+  <p>
+    예제<br>
+    <form action="https://localhost/index.php" method="post"
+    enctype="multipart/form-data">
+      <label for="RDcastle_img">RDcastle 이미지 :</label> <input type="file" name="RDcastle_img" id="RDcastle_img"><br>
+      <input type="submit">
+    </form>
+  </p>
+  <p>
+    예제코드<br>
+    <p>
+      <pre>
+        <code>
+          &lt;form action="https://localhost/index.php" method="post" enctype="multipart/form-data"&gt;
+            &lt;label for="RDcastle_img"&gt;RDcastle 이미지 :&lt;/label&gt; &lt;input type="file" name="RDcastle_img" id="RDcastle_img"&gt;&lt;br&gt;
+            &lt;input type="submit"&gt;
+          &lt;/form&gt;
+        </code>
+      </pre>
+    </p>
+  </p>
+  <p>
+    * form 태그 속성으로 포함된 enctype="multipart/form-data" 부분은 일단 외워둘 것
+  </p>
+</body>
+
+</html>
