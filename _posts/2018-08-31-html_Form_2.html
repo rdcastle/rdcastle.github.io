@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Form_input"
+title: "Form_input,label"
 subtitle:
 date: 2018-08-31
 author: RDcastle
@@ -53,10 +53,11 @@ finished: true
     <p> 주민번호 : <input type="text" placeholder="123456-1234567" name="Primary_num" pattern="\d{6}\-\d{7}" title="123456-1234567 형식"></p>
   </ul><br>
   <h3>label 태그</h3>
+  <p>예제</p>
   <form action="https://localhost/index.html" method="post">
     <p>
       <ul>
-        <li> label : <label for="id_txt">ID</label> : <input type="text" name="id" id="id_txt"></li>
+        <li><label for="id_txt">ID</label> : <input type="text" name="id" id="id_txt"></li>
       </ul>
     </p>
   </form>
