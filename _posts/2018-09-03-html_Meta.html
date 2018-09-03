@@ -1,0 +1,39 @@
+---
+layout: post
+title: "정보전달을 위한 HTML, meta 태그 활용"
+subtitle:
+date: 2018-09-03
+author: RDcastle
+category: HTML
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <h3>정보전달을 위한 HTML</h3>
+  <p>웹 브라우저로 나타내는 정보의 양과 복잡도가 기하급수적으로 증대됨에 따라 HTML 문법에 정교한 변화가
+  도래했는데, 그 중 가장 중심이 되는 것은 '정보전달' 을 위한 집중이다. 그 과정에서 해당 내용 및 태그가 의미하는
+  바를 보다 간결하고 명료하게 설명하기 위해 정보로서의 의미를 갖지 못하거나 문법적 완결성을 저해하는 디자인적
+  요소들을 배제하기 시작했다. 그 대표적인 태그가 'font' 태그이며 그것이 가지고 있던 디자인적인 속성(size, color 등)은
+  HTML 로부터 철저하게 분리되어 CSS 라는 심미적 목적의 별도의 언어에 포함되었다.</p>
+  <h3>meta tag</h3>
+  <p>head 태그 내부에서 해당 페이지에 관한 설명 및 묘사를 담당하는 태그. 문서를 대표하는 키워드나 페이지 작성자
+  등의 정보도 표현 가능하다. </p>
+  <ul>
+    <p>속성 종류</p>
+    <p><li>name</li>
+    <p>속성값으로 description, subject, title(제목), author(작성자), keywords(키워드) 등을 갖는다</p></p>
+    <p><li>content</li>
+    <p>name 속성에 대한 구체적인 설명이나 묘사</p></p>
+    <p><li>http-equiv</li>
+    <p>속성값으로 'refresh' 를 부여하면 content 에 지정한 시간(5, 10)마다 페이지가 리프레시된다.
+    시간 뒤에 url 을 입력하면, refresh되는 시점에 해당 페이지로 이동한다.</p></p>
+  </ul>
+</body>
+
+</html>
