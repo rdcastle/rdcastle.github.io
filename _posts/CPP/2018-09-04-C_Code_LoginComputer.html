@@ -1,0 +1,242 @@
+---
+layout: post
+title: "나만의 컴퓨터 로그인 코드"
+subtitle:
+date: 2018-09-03
+author: RDcastle
+category: C++
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <p>
+    <h3>구조</h3>
+    <ul>
+      <li> 첫번째 클래스: Login</li>
+      <p>멤버변수는 문자열 id 와 문자열 pw, 멤버함수는 Display, Check, Reset_Account</p>
+      <li> 두번째 클래스: Computer</li>
+      <p>멤버변수는 문자열 name, graphic, cpu, memory, 멤버함수는 Com_Display, Condition, Function<br>
+      Function 함수의 기능은 계산기, 메모장, 그림판 실행</p>
+      <li> 상속관계: Login -> Computer</li>
+    </ul>
+  </p>
+  <p>
+    <h3>로직</h3>
+    <p>직접적인 상속관계는 없고, 자식이 부모를 참조하는 형식이다. 접근제어는 public. 메인함수에서는 자식클래스인 Computer 객체를
+    선언하며 Login 클래스의 매개변수 id, pw 와 Computer 클래스의 매개변수 네 개를 한번에 넘겨준다(6개 인자). 그리고 Computer::Com_Display(); 함수 호출.
+    Com_Display() 함수는 컴퓨터 화면을 뿌려주기 이전에 부모클래스인 Login 의
+    Display() 함수를 호출하여 사용자입력 _id, _pw 와 기존의 id, pw 를 비교하여 로그인 성공유무 판단, 성공하면 컴퓨터 화면을 뿌려주고 실패하면 그대로 종료된다.
+    참고로 Login::Display 에서 Reset_Account 함수는 사용자입력값이 기존값과 일치한다면 id 와 pw 를 변경 가능하게 한다.</p>
+    <p>이러한 간단한 로직은 어디까지나 클래스 개념 연습용이고(임시적인 데이터 다룸), 실제 로그인 정보는 RDBMS 를 이용한 DB Query 를 활용해서 저장된다</p>
+  </p>
+  <h3>Code</h3>
+  <p>
+    <pre>
+#include &lt;iostream&gt;
+#include &lt;Windows.h&gt;
+#define MAXLEN 10
+using namespace std;
+
+class Login {
+private:
+	char id[MAXLEN];
+	char pw[MAXLEN];
+public:
+	Login(const char* id, const char* password) {
+		strcpy(this->id, id);
+		strcpy(this->pw, password);
+		cout << "Login!!" << endl;
+	}
+
+	int Display();
+	void Reset_Account();
+	int Check();
+};
+
+class Computer : public Login {
+	char name[30];
+	char graphic[30];
+	char cpu[30];
+	char memory[30];
+public:
+	Computer(const char* user_id, const char* user_pw, const char* nm, const char* gp, const char* cp, const char* mm)
+		: Login(user_id, user_pw)
+	{
+		strcpy(this->name, nm);
+		strcpy(this->graphic, gp);
+		strcpy(this->cpu, cp);
+		strcpy(this->memory, mm);
+		cout << "Computer!!\n" << endl;
+	}
+	void Com_Display();
+	void Condition();
+	void Function();
+};
+
+int main(void) {
+	Computer com("rara", "aa12345", "라대성", "gtx", "i7", "8G");
+
+	com.Com_Display();
+
+	return 0;
+}
+
+int Login::Display() {
+	int inputnum, login_access_num;
+
+	while (true) {
+		cout << "1. Login\n2. Reset_Account\n3. Exit\n >> "; cin >> inputnum;
+
+		switch (inputnum) {
+		case 1:
+			login_access_num = Check();
+			if (login_access_num) {
+				return 1;
+			}
+
+			break;
+		case 2:
+			Reset_Account();
+
+			system("pause");
+			system("cls:");
+			break;
+		case 3:
+			return 0;
+		}
+	}
+}
+
+void Login::Reset_Account() {
+	char _id[MAXLEN];
+	char _pw[MAXLEN];
+
+	cout << "기존 id 입력: "; cin >> _id;
+	cout << "기존 pw 입력: "; cin >> _pw;
+
+	if (!strcmp(this->id, _id) && !strcmp(this->pw, _pw)) {
+
+		cout << "변경할 id 입력: "; cin >> _id;
+		cout << "변경할 pw 입력: "; cin >> _pw;
+
+		strcpy(this->id, _id);
+		strcpy(this->pw, _pw);
+	}
+	else {
+		cout << "입력하신 계정이 일치하지 않습니다" << endl;
+	}
+}
+
+int Login::Check() {
+	char _id[MAXLEN];
+	char _pw[MAXLEN];
+
+	cout << "id 입력: "; cin >> _id;
+	cout << "pw 입력: "; cin >> _pw;
+
+	if (!strcmp(this->id, _id) && !strcmp(this->pw, _pw)) {
+		cout << "Login Success!!" << endl;
+
+		Sleep(1000);
+		system("cls");
+		return 1;
+	}
+	else {
+		cout << "Login Fail!!\nTry Again.." << endl;
+
+		Sleep(1000);
+		system("cls");
+		return 0;
+	}
+}
+
+void Computer::Com_Display() {
+	int login_access_num = Display();
+
+	if (login_access_num) {
+		int select = 0;
+
+		while (true) {
+			cout << "-- 내 컴퓨터 --\n1. Condition\n2. Function\n3. Fin\n >> "; cin >> select;
+
+			if (select == 1) {
+				Condition();
+
+				system("pause");
+				system("cls");
+			}
+			else if (select == 2) {
+				system("cls");
+				Function();
+
+				system("pause");
+				system("cls");
+			}
+			else if (select == 3) {
+
+				Sleep(1000);
+				exit(1);
+			}
+			else {
+				cout << "다시 입력하세요.." << endl;
+
+				system("pause");
+				system("cls");
+			}
+		}
+	}
+	else {
+		return;
+	}
+}
+
+void Computer::Condition() {
+	cout << "이름: " << name << endl;
+	cout << "그래픽: " << graphic << endl;
+	cout << "CPU: " << cpu << endl;
+	cout << "메모리: " << memory << endl;
+}
+
+void Computer::Function() {
+	int inputnum;
+
+	while (true) {
+		cout << "원하는 기능 선택\n1. 계산기\n2. 메모장\n3. 그림판\n4. 돌아가기\n >> "; cin >> inputnum;
+
+		switch (inputnum) {
+		case 1:
+			system("calc");
+
+			system("pause");
+			system("cls");
+			break;
+		case 2:
+			system("notepad");
+
+			system("pause");
+			system("cls");
+			break;
+		case 3:
+			system("mspaint");
+
+			system("pause");
+			system("cls");
+			break;
+		case 4:
+			return;
+		default:
+			continue;
+		}
+	}
+}
+    </pre>
+  </p>
+</body>
+
+</html>
