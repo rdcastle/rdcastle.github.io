@@ -13,8 +13,9 @@ finished: true
 <head>
   <meta charset="utf-8">
   <style>
-    #style{
-      font-size: 30px; color: red;
+    .style {
+      font-size: 30px;
+      color: red;
     }
   </style>
 </head>
@@ -47,15 +48,15 @@ finished: true
     <p>
       <h3>CSS 기본문법 - style 태그</h3>
       <p>HTML 태그와 분리된 CSS 는 자신만의 고유한 영역에서 독립적으로 작성된다. 그 영역은 head 태그 하위 style 태그 하위에 존재한다(style 태그까지는
-      HTML 문법이고, 그 하위공간이 CSS 영역). 이곳에서 무엇을 꾸밀 것인지 정확히 핀셋으로 집어내서(선택자) 각종 CSS 문법으로 디자인한다.</p>
+        HTML 문법이고, 그 하위공간이 CSS 영역). 이곳에서 무엇을 꾸밀 것인지 정확히 핀셋으로 집어내서(선택자) 각종 CSS 문법으로 디자인한다.</p>
       <pre>
         &lt;html&gt;
           &lt;head&gt;
-            <tag id="style">&lt;style&gt;     &lt;&lt; 여기서부터
-              h2 {
+            <tag class="style">&lt;style&gt;</tag>     &lt;&lt; 여기서부터
+              <tag class="style">h2 {
                 color:blue
-              }
-            &lt;/style&gt;    &lt;&lt; 여기까지</tag>
+              }</tag>
+            <tag class="style">&lt;/style&gt;</tag>    &lt;&lt; 여기까지
           &lt;/head&gt;
         &lt;/html&gt;
       </pre>
