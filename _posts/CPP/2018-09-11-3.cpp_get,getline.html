@@ -48,10 +48,37 @@ finished: true
     <p>
       <h3>cin.getline</h3>
       <p>
-        cin 클래스의 함수이며, '문자열'을 입력받는다. cin.get과 마찬가지로 공백과 개행을 수용하므로 사용상 주의가 필요하다.
+        cin 클래스의 함수이며, '문자열'을 입력받는다. 공백이나 개행을 포함한 문장 전체를 입력받는다고 생각하면 된다.
+        cin.get과 마찬가지로 공백과 개행을 수용하므로 사용상 주의가 필요하다.
       </p>
       <p>
         코딩시에는 별도의 문자열(char str[20]) 변수를 선언하고 <code>cin.getline([선언한 문자열], [사이즈])</code> 형식으로 사용한다.
+      </p>
+    </p>
+    <p>
+      <h3>기타 cin 함수들 - cin.ignore, cin.clear, cin.putback</h3>
+      <p>
+        cin.ignore 함수는 공백 및 개행(\n) 입력 시 그것을 무시하는 역할을 한다. 버퍼에 남겨진 공백 및 개행을 비울 때 사용한다.
+      </p>
+      <p>
+        일반적으로 사용자가 입력할 때에만 버퍼에 데이터가 임시저장된다. 그러나 로직에 따라 특정 문자를 버퍼에 밀어넣고자 할 때가 있다(자동치환).
+        이때 <strong>cin.putback("[입력할 문자]")</strong> 함수를 사용한다. cin.putback 이후에 입력된 문자열이 있다면 그 중 첫 번째 문자는 putback이
+        밀어넣은 문자로 치환된다. putback 입력 문자는 오직 하나만 적용된다.
+      </p>
+    </p>
+    <p>
+      <h3>cin 과 별개인 getline 함수</h3>
+      <p>
+        getline 함수는 cin.getline 함수와 다른 것이다. 지금까지의 문자열은 char 배열 형식이었으나, getline 함수는
+        string 배열 형식의 문자열을 입력받는다. 사용방식도 다르다. string 변수를 선언하고 <strong>getline(cin, [입력받을 문자열])</strong> 형식으로 사용한다.
+      </p>
+      <p>
+        <pre>
+          <code>
+            string str;
+            getline(cin, str);
+          </code>
+        </pre>
       </p>
     </p>
   </article>
