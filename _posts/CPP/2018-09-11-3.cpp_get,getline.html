@@ -1,0 +1,60 @@
+---
+layout: post
+title: "cin 입력함수"
+subtitle:
+date: 2018-09-11
+author: RDcastle
+category: C++
+finished: true
+---
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <header>
+    <h1>cin, cin.get, cin.getline, </h1>
+    <p>cin 계열 함수들은 버퍼를 이용하여 입력을 받는다. 그러나 함수에 따라 입력받는 형식이나 데이터 타입에 차이가 있다</p>
+  </header>
+  <article>
+    <p>
+      <h3>cin</h3>
+      <p>
+        헤더파일 iostream 에 존재하는 namespace 'std'에 속한 클래스 중의 하나,
+        자료형에 관계없이(정수 실수 및 문자(열)) <em><strong>공백이나 개행(\n) 이전까지</strong></em>만 입력을 받는다.
+        어떤 경우에서든지 공백이나 개행이 입력되면, 입력을 종료하고 공백 및 개행은 버퍼에 그대로 남겨둔다. 그러므로
+        cin 입력 후 엔터(\n) 다음 문자열 입력을 위한 cin.getline() 함수를 사용하면 버퍼의 공백(\n)이 그대로 입력되므로
+        의도와는 다른 결과가 나온다(<ins>의도가 공백을 입력받는 거라면 정확한 결과이다</ins>).
+      </p>
+      <p>
+        경우에 따라서는 cin 과 cin.getline 을 혼용해야 하는 경우가 있기 때문에 위와 같은 문제를 해결하기 위해
+        버퍼를 비워주는 <B>cin.ignore</B> 혹은 <strong>cin.clear</strong> 함수를 사용하면 된다.
+      </p>
+    </p>
+    <p>
+      <h3>cin.get</h3>
+      <p>
+        cin 클래스의 함수이며, 가장 큰 특징은 <strong>'문자 한 개만'</strong> 입력받는다는 것이다. 사실, 개행이나 공백도 하나의 문자로 취급하여
+        받아들인다.
+      </p>
+      <p>
+        코딩시에는 별도의 문자형 변수를 선언하고 cin.get() 으로 입력받은 문자를 대입하는 형식으로 사용한다.<br>
+        <code>char ch = cin.get();</code>
+      </p>
+    </p>
+    <p>
+      <h3>cin.getline</h3>
+      <p>
+        cin 클래스의 함수이며, '문자열'을 입력받는다. cin.get과 마찬가지로 공백과 개행을 수용하므로 사용상 주의가 필요하다.
+      </p>
+      <p>
+        코딩시에는 별도의 문자열(char str[20]) 변수를 선언하고 <code>cin.getline([선언한 문자열], [사이즈])</code> 형식으로 사용한다.
+      </p>
+    </p>
+  </article>
+</body>
+
+</html>
