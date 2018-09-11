@@ -1,0 +1,84 @@
+---
+layout: post
+title: "문자열 사용하기 - 알파벳 찾기 문제"
+subtitle:
+date: 2018-09-11
+author: RDcastle
+category: 알고리즘 코딩
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .class{
+      color:Orchid;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h3>알파벳 찾기!</h3>
+    <p>알파벳 소문자로만 이루어진 단어 S가 주어진다. 각각의 알파벳에 대해서, 단어에 포함되어 있는 경우에는
+    처음 등장하는 위치를, 포함되어 있지 않은 경우에는 -1을 출력하는 프로그램을 작성하시오.</p>
+  </header>
+  <article>
+    <p>
+      <ul>
+        <li>단어를 입력받을 문자열(string) 선언, 알파벳 배열 선언(사이즈 26)</li>
+        <li>알파벳 배열에 모두 -1 을 채워 넣고, 단어를 입력받는다</li>
+        <li>입력받은 단어의 사이즈만큼 알파벳과 반복비교해서 알파벳 상의 위치에 해당 인덱스의 값을 저장한다(기존에 저장된 -1을 인덱스로 치환).
+        단, 해당 알파벳이 처음으로 나타난 곳의 인덱스를 저장해야 하므로 -1 이 저장되어 있지 않다면 인덱스를 저장하지 않고 넘어간다</li>
+        <li>단어에 맞게 치환이 완료된 알파벳 배열을 공백 한 칸씩을 포함하여 출력한다</li>
+      </ul>
+    </p>
+    <pre>
+      <code>
+        #include &lt;iostream&gt;
+        #include &lt;string&gt;
+        using namespace std;
+
+        int main(void) {
+        	string ch;
+        	int alpha[26], strSize;
+
+        	for (int temp = 0; temp < 26; temp++) {
+        		alpha[temp] = -1;
+        	}
+
+        	getline(cin, ch);
+
+        	strSize = ch.length();
+        	for (int i = 0; i < strSize; i++) {		// 입력받은 단어의 사이즈만큼 반복
+        		for (int alphabet = 97; alphabet < 123; alphabet++) {	// 알파벳 수만큼 반복(아스키코드)
+        			if ((int)ch[i] == alphabet) {
+        				if (alpha[alphabet - 97] == -1) {
+        					alpha[alphabet - 97] = i;
+        				}
+        			}
+        		}
+        	}
+
+        	cout << alpha[0];
+        	for (int temp = 1; temp < 26; temp++) {
+        		cout << ' ' << alpha[temp];
+        	}
+
+        	return 0;
+        }
+      </code>
+    </pre>
+    <p>
+      개선사항: 문제 상에서는 굳이 알파벳 배열을 생성할 필요가 없으므로 입력받은 단어와 알파벳을 비교하는 대로 인덱스 및 -1을 출력한다
+      (메모리 공간 세이브 및 반복구조 축소)
+    </p>
+  </article>
+  <footer>
+    <a href="https://www.acmicpc.net/problem/10809">백준 알고리즘</a>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+---
+layout: post
+title: "문자열 숫자 배열 궁금증!!"
+subtitle:
+date: 2018-09-11
+author: RDcastle
+category: C
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .class{
+      color:Orchid;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    <p>
+      배열 개념에서, 문자열도 결국 문자를 저장하는 배열이기 때문에,<br>
+      배열명에 저장된 주소값과 배열의 첫 번째 인덱스에 해당하는 주소값을 각각 출력해 보았다. 근데..
+    </p>
+    <pre>
+      <code>
+        #include &lt;iostream&gt;
+        #include &lt;string&gt;
+        using namespace std;
+
+        int main(void) {
+          <span class="class">// 문자열 주소와 0번 인덱스 주소 출력</span>
+        	char ch[101];
+        	char* compare = &ch[0];
+
+        	cout << &ch << " == " << compare << endl;
+
+          <span class="class">// 숫자 배열 주소와 0번 인덱스 주소 출력</span>
+        	int arr[101];
+        	int* ptr = &arr[0];
+
+        	cout << &arr << " == " << ptr << endl;
+
+        	return 0;
+        }
+      </code>
+    </pre>
+    <p>출력결과</p>
+    <pre>
+      00BEF99C == a
+      00BEF7F4 == 00BEF7F4
+      계속하려면 아무 키나 누르십시오 . . .
+    </pre>
+    <p>
+      숫자 배열의 경우 첫 번째 인덱스의 주소값은 그대로 출력이 되는데,
+      문자열의 경우 첫 번째 인덱스의 주소값이 출력되지 않고 그곳에 저장된 값이 출력되는가..?
+    </p>
+    <p>
+      아마 문자열의 특성상 아스터리스크(*) 없이 이름(주소값이 저장된)만으로도 저장된 값에 접근 가능하다는 것 때문이 아닐지..<br>
+      (숫자 배열은 '*arr' 이런 식으로 저장된 값에 접근한다)
+    </p>
+  </p>
+</body>
+
+</html>
