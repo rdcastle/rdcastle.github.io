@@ -36,40 +36,38 @@ finished: true
       </ul>
     </p>
     <pre>
-      <code>
-        #include &lt;iostream&gt;
-        #include &lt;string&gt;
-        using namespace std;
+      #include &lt;iostream&gt;
+      #include &lt;string&gt;
+      using namespace std;
 
-        int main(void) {
-        	string ch;
-        	int alpha[26], strSize;
+      int main(void) {
+    	string ch;
+    	int alpha[26], strSize;
 
-        	for (int temp = 0; temp < 26; temp++) {
-        		alpha[temp] = -1;
-        	}
+    	for (int temp = 0; temp < 26; temp++) {
+    		alpha[temp] = -1;
+    	}
 
-        	getline(cin, ch);
+    	getline(cin, ch);
 
-        	strSize = ch.length();
-        	for (int i = 0; i < strSize; i++) {		// 입력받은 단어의 사이즈만큼 반복
-        		for (int alphabet = 97; alphabet < 123; alphabet++) {	// 알파벳 수만큼 반복(아스키코드)
-        			if ((int)ch[i] == alphabet) {
-        				if (alpha[alphabet - 97] == -1) {
-        					alpha[alphabet - 97] = i;
-        				}
-        			}
-        		}
-        	}
+    	strSize = ch.length();
+    	for (int i = 0; i < strSize; i++) {		<span class="class">// 입력받은 단어의 사이즈만큼 반복</span>
+    		for (int alphabet = 97; alphabet < 123; alphabet++) {	<span class="class">// 알파벳 수만큼 반복(아스키코드)</span>
+    			if ((int)ch[i] == alphabet) {
+    				if (alpha[alphabet - 97] == -1) {
+    					alpha[alphabet - 97] = i;
+    				}
+    			}
+    		}
+    	}
 
-        	cout << alpha[0];
-        	for (int temp = 1; temp < 26; temp++) {
-        		cout << ' ' << alpha[temp];
-        	}
+    	cout << alpha[0];
+    	for (int temp = 1; temp < 26; temp++) {
+    		cout << ' ' << alpha[temp];
+    	}
 
-        	return 0;
-        }
-      </code>
+      	return 0;
+      }
     </pre>
     <p>
       개선사항: 문제 상에서는 굳이 알파벳 배열을 생성할 필요가 없으므로 입력받은 단어와 알파벳을 비교하는 대로 인덱스 및 -1을 출력한다
