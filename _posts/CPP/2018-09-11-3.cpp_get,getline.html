@@ -23,7 +23,7 @@ finished: true
     <p>
       <h3>cin</h3>
       <p>
-        헤더파일 iostream 에 존재하는 namespace 'std'에 속한 클래스 중의 하나,
+        헤더파일 &lt;iostream&gt; 에 존재하는 namespace 'std'에 속한 클래스 중의 하나,
         자료형에 관계없이(정수 실수 및 문자(열)) <em><strong>공백이나 개행(\n) 이전까지</strong></em>만 입력을 받는다.
         어떤 경우에서든지 공백이나 개행이 입력되면, 입력을 종료하고 공백 및 개행은 버퍼에 그대로 남겨둔다. 그러므로
         cin 입력 후 엔터(\n) 다음 문자열 입력을 위한 cin.getline() 함수를 사용하면 버퍼의 공백(\n)이 그대로 입력되므로
@@ -52,11 +52,11 @@ finished: true
         cin.get과 마찬가지로 공백과 개행을 수용하므로 사용상 주의가 필요하다.
       </p>
       <p>
-        코딩시에는 별도의 문자열(char str[20]) 변수를 선언하고 <code>cin.getline([선언한 문자열], [사이즈])</code> 형식으로 사용한다.
+        코딩시에는 별도의 문자열(char str[20]) 변수를 선언하고,<br><code>cin.getline([선언한 문자열], [사이즈])</code><br>형식으로 사용한다.
       </p>
     </p>
     <p>
-      <h3>기타 cin 함수들 - cin.ignore, cin.clear, cin.putback</h3>
+      <h3>기타 cin 함수들 - cin.ignore, cin.clear, cin.putback, cin.eof</h3>
       <p>
         cin.ignore 함수는 공백 및 개행(\n) 입력 시 그것을 무시하는 역할을 한다. 버퍼에 남겨진 공백 및 개행을 비울 때 사용한다.
       </p>
@@ -65,12 +65,22 @@ finished: true
         이때 <strong>cin.putback("[입력할 문자]")</strong> 함수를 사용한다. cin.putback 이후에 입력된 문자열이 있다면 그 중 첫 번째 문자는 putback이
         밀어넣은 문자로 치환된다. putback 입력 문자는 오직 하나만 적용된다.
       </p>
+      <p>
+        <strong>cin.eof() >> end of file</strong>, 일반적인 입출력에서 종료조건은 코딩하는 사람에 의해 명시되기 마련이다. 그러나 경우에 따라 사용자가 종료조건을 입력하는 타이밍에
+        해당 프로그램의 종료시점이 정해지도록 하려면(코딩시 종료시점을 정하지 않는다), cin.eof() 함수를 사용한다.<br>기본적으로 cin.eof() 의 반환값은
+        bool 형 false 값(0)이며, 사용자 종료조건 입력에 따라 이후에 로직이 남아 있다 하더라도 프로그램을 곧바로 종료하도록 만들 수 있다.
+      </p>
+      <p>
+        cin.eof 함수의 요는, '사용자가 입력하는 타이밍에 특정 bool 형 데이터를 반환하는 함수'이다!<br>
+        예를 들어, 100회 반복하여 사용자 입력을 받아 출력하는 프로그램이 있다고 할때 반복조건에 cin.eof 함수를 적용하면, 사용자가 ctrl + z(종료, 윈도우의 경우)를 입력하는 순간
+        이후의 로직을 무시하고 프로그램이 종료된다.
+      </p>
     </p>
     <p>
       <h3>cin 과 별개인 getline 함수</h3>
       <p>
         getline 함수는 cin.getline 함수와 다른 것이다. 지금까지의 문자열은 char 배열 형식이었으나, getline 함수는
-        string 배열 형식의 문자열을 입력받는다. 사용방식도 다르다. string 변수를 선언하고 <strong>getline(cin, [입력받을 문자열])</strong> 형식으로 사용한다.
+        string 배열 형식의 문자열(헤더파일 &lt;string&gt;)을 입력받는다. 사용방식도 다르다. string 변수를 선언하고 <strong>getline(cin, [입력받을 문자열])</strong> 형식으로 사용한다.
       </p>
       <p>
         <pre>
