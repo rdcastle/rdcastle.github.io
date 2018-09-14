@@ -1,0 +1,118 @@
+---
+layout: post
+title: "난수 얻기(랜덤값 반환 메서드), 쓰레드 일시중지"
+subtitle:
+date: 2018-09-07
+author: RDcastle
+category: JAVA
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    h3 {
+      color: Orchid;
+    }
+
+    .emp {
+      color: red;
+      font-style: italic;
+    }
+
+    pre{
+      background-color: Orchid;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <p>
+      <h3>Math.random()</h3>
+      <p>
+        Math.random() 메서드는 0.0 이상 1.0 미만의 double 값을 반환한다. 1.0 은 포함되지 않는다는 것 주목.
+      </p>
+      <p>
+        이것을 기반으로 예를 들어 1, 2, 3 중 하나의 정수를 랜덤으로 얻기 원한다면, 먼저 3을 곱하여 총 난수범위를 0.0 이상 3.0 미만으로
+        만들고, int 형으로 변환한 후(소수점 이하는 버려지므로 0, 1, 2 중 하나 산출), 1을 더한다. 그럼 1, 2, 3 중 하나의 정수가 랜덤으로 반환된다
+      </p>
+      <p>
+        * 다음은 랜덤 메서드를 활용해 컴퓨터와 가위바위보를 하는 코드이다
+        <pre>
+
+import java.util.*;
+
+public class FlowEx7 {
+
+	public static void main(String[] args) {
+
+		System.out.println("가위(1), 바위(2), 보(3) 중 하나를 입력하세요\n >>");
+
+		Scanner scanner = new Scanner(System.in);
+		int user = scanner.nextInt();			// 사용자 입력
+		int com =(int)(Math.random() * 3) + 1;	// 1, 2, 3 중 하나가 com 에 저장됨
+
+		System.out.println("당신은 " + user + "입니다.");
+		System.out.println("컴은 " + com + "입니다.");
+
+		switch(user-com) {
+			case 2: case -1:
+				System.out.println("당신이 졌습니다.");
+				break;
+			case 1: case -2:
+				System.out.println("당신이 이겼습니다.");
+				break;
+			case 0:
+				System.out.println("비겼습니다.");
+				break;
+		}
+	}
+
+}
+
+        </pre>
+      </p>
+    </p>
+    <p>
+      <h3>Thread.sleep()</h3>
+      <p>
+        sleep 메서드는 쓰레드를 일정 시간동안 중지시킨다. 자바 프로그램은 실행시 쓰레드가 생성되고 sleep 메서드를 만나면 지정된 시간동안
+        중지시켰다가 다시 실행한다. 로직상 일정한 시간 텀이 필요하거나 실행 속도 조절과 같은 목적으로 사용된다
+      </p>
+      <p>
+        사용방식은, 예외처리를 적용하고 Thread 클래스 내에 오버로딩된 두 메서드를 활용하는데, 하나는 밀리 초 단위로 인자를 입력하고 나머지 하나는 나노 초 단위로 인자를 전달한다.
+        <a href="http://www.daleseo.com/">daleseo</a> 블로그를 참조하면, 이 메서드는 기저 운영체제의 제한을 받기 때문에 정지 시간을
+        정확하게 보장하지는 못한다
+      </p>
+      <p>
+        * 다음은 sleep 메서드를 활용해 반복문 실행시마다 2초간 중지시키는 코드이다. 주석처리한 부분은 같은 효과를 위해 20억 번 반복문을 돌린다
+        <pre>
+
+public class FlowEx23 {
+
+	public static void main(String[] args) throws InterruptedException {
+		int i = 11;
+
+		while (i-- != 0) {
+			System.out.println(i + " - dd");
+
+			/*for (long j = 0; j < 2_000_000_000; j++) {
+				;
+			}*/
+			Thread.sleep(2000);
+		}
+
+	}
+
+}
+
+        </pre>
+      </p>
+    </p>
+  </article>
+</body>
+
+</html>
