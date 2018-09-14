@@ -18,6 +18,12 @@ finished: true
     .emp {
       color: red; font-style: italic;
     }
+    table{
+      width: 100%
+    }
+    table, th, td{
+      border: 1px solid #bcbcbc;
+    }
   </style>
 </head>
 
@@ -51,13 +57,82 @@ finished: true
             <li>개체무결성: 한 릴레이션의 기본키를 구성하는 어떠한 속성 값도 NULL 값이나 중복 값을 가질 수 없다</li>
             <li>도메인무결성: 튜플들의 각 속성 값은 반드시 정의된 도메인에 속해야만 한다</li>
           </ul>
+          <p>
+            * 참조무결성 제약조건
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>상위 테이블</th>
+                  <th>하위 테이블</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>삽입</td>
+                  <td>제약 없음</td>
+                  <td>상위 테이블에 데이터가 존재하는지 검증</td>
+                </tr>
+                <tr>
+                  <td>갱신</td>
+                  <td>수정하려는 데이터를 하위 테이블에서 참조하고 있는지 검증</td>
+                  <td>상위 테이블에 존재하는 다른 데이터로 변경 가능</td>
+                </tr>
+                <tr>
+                  <td>삭제</td>
+                  <td>삭제하려는 데이터를 하위 테이블에서 참조하고 있는지 검증</td>
+                  <td>제약 없음</td>
+                </tr>
+            </tbody>
+            </table>
+          </p>
         </p>
       </li>
       <li>
-        <h3></h3>
+        <h3>정합성</h3>
+        <p>
+          데이터 무결성과 데이터 통합의 결과. 무모순성(논리적 모순이 없는 성질이나 상태) 보장. 결과적으로 DB 의 신뢰성을 향상시키고 신속한
+          의사결정이 가능하게 한다.<br>데이터 정합성 제고를 위해, '물리적 데이터 통합'과 데이터 속성을 통합하는 '구조적 데이터 통합'이 함께 이루어져야 함
+        </p>
       </li>
       <li>
-        <h3></h3>
+        <h3>CRUD 매트릭스, 컬럼(속성) 정의서</h3>
+        <p>
+          CRUD 매트릭스는 업무 프로세스(행)와 데이터(개체, 속성 값, 열) 간 상관 분석표. 행과 열이 만나는 교차점에 사용자 요구사항 및 변동에 따른 상태를 표시한다.
+          상태에는 Creat, Read, Updata, Delete 가 있다.
+        </p>
+        <p>
+          * 컬럼 정의서 example
+          <table>
+            <thead>
+              <tr>
+                <th>속성명</th>
+                <th>데이터 유형</th>
+                <th>테이블</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ENTER_DATE</td>
+                <td>CHAR(8)</td>
+                <td>EMP_M</td>
+              </tr>
+              <tr>
+                <td>DEPARTMENT</td>
+                <td>CHAR(4)</td>
+                <td>EMP_M</td>
+              </tr>
+              <tr>
+                <td>SYS_DATE</td>
+                <td>CHAR(8)</td>
+                <td>ORDER_M</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <p>
+          * 이 외에도 개체정의서, 개체 관계 정의서 등이 있다
+        </p>
       </li>
       <li>
         <h3></h3>
