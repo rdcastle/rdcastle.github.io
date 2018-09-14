@@ -1,0 +1,164 @@
+---
+layout: post
+title: "1. DB 개념"
+subtitle:
+date: 2018-09-13
+author: RDcastle
+category: 정보처리_DB
+finished: true
+---
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    h3 {
+      color: Orchid;
+    }
+    .emp {
+      color: red; font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <ol>
+      <li>
+        <h3>데이터베이스 도입 배경</h3>
+        <p>
+          File System 의 문제점 해결이 목적. 문제점이란, 독립된 파일이나 디렉토리 단위로 저장되던 데이터 간에 발생하는 '데이터 중복성' 과 '데이터 종속성' 등이 있다.
+          데이터베이스는 공통된 데이터를 통합하고 중복을 배제하는 등 '데이터 무결성' 위배 가능성을 제거해 나간다.
+        </p>
+      </li>
+      <li>
+        <h3>DB 정의</h3>
+        <p>
+          <ul>
+            <li>Integrated Data: 통합된 데이터. 중복 배제 및 데이터 용량 최소화</li>
+            <li>Stored Data: 저장된 데이터. 저장 매체(디스크 등)에 저장된 데이터</li>
+            <li>Operational Data: 운영 데이터. 조직 운영과 업무 수행에 있어서 존재가치가 확실하고 없어서는 안될 데이터</li>
+            <li>Shared Data: 공용 데이터. 여러 사용자가 공동으로 소유하고 이용한다 >> 협업효율 상승</li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <h3>DB 시스템 개념</h3>
+        <p>
+          데이터 중복성 및 불일치 감소 >> 데이터 Consistency(일관성), Integrity(무결성, 청렴) 유지 보장<br>
+          데이터 Independence(독립성) >> 물리적 독립성(기존 SW 에 영향을 미치지 않고 물리적 구조 변경), 논리적 독립성(데이터의 논리적 구조를 변경시키더라도
+          해당 데이터를 사용하는 응용 SW 는 변경되지 않음)
+        </p>
+      </li>
+      <li>
+        <h3>DBMS: DataBase Management System</h3>
+        <p>
+          DB와 사용자(응용 SW) 간의 중재자. 사용자 요구에 따라 DB 생성, 수정, 삭제, 트랜잭션 등의 관리를 수행한다
+        </p>
+      </li>
+      <li>
+        <h3>Data Language</h3>
+        <p>
+          DBMS 와의 통신수단이며, 직접적인 질의 방식의 비절차적 언어이다(SQL: Structured Query Language).<br>
+          <ul>
+            <li>DDL: Data Definition Language. DBA 가 사용하는 정의어</li>
+            <li>DML: Data Management Language. 응용프로그래머 및 사용자</li>
+            <li>DCL: Data Control Language. DBA가 사용, 트랜잭션이나 접근제어 및 백업보안 등을 위한 제어어</li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <h3>DB 특징</h3>
+        <p>
+          <ul>
+            <li>실시간 접근성(Real Time Accessibility)</li>
+            <li>계속적인 변화(Continuous Evolution)</li>
+            <li>동시 공용, 공유성(Concurrent Sharing)</li>
+            <li>내용에 의한 참조(Content Reference)</li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <h3>DB 사용자</h3>
+        <p>
+          <ul>
+            <li>DBA: DB 설계와 조작 책임, 행정적 책임, 시스템 감시 및 성능 분석 최적화</li>
+            <li>Data 관리자: 조직 내에서 데이터 관련 정의, 체계화, 감독 및 보안 담당. 데이터 관리총괄</li>
+            <li>Data 설계자: 데이터의 구조를 체계적으로 정의</li>
+            <li>Application Programmer 및 End User</li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <h3>스키마 3계층</h3>
+        <p>
+          <li>External Scheme: 외부 스키마. 사용자가 보는 관점. 따라서 여러 개의 관점 존재(서브스키마, 사용자 뷰)</li>
+          <li>Conceptual Scheme: 개념 스키마. DB 전체적인 논리 구조. 개체 간의 관계나 제약조건을 나타내고, 접근권한 및 보안 무결성 규칙에 관한 명세를 정의한다</li>
+          <li>Internal Scheme: 내부 스키마. DB 물리 구조. 물리 저장장치와 밀접. 뼈대와 같으며 실제 저장된 데이터 자체를 지칭한다</li>
+        </p>
+      </li>
+      <li>
+        <h3>스키마?</h3>
+        <p>
+          DB 의 구조와 제약조건에 대한 명세를 기술한 것. 일종의 설계도. 개체(Entity), 속성(Attribute), 개체 간 관계(Relationship) 정의,
+          이러한 데이터들의 조작 또는 제약조건 정의
+        </p>
+      </li>
+      <li>
+        <h3>DB 설계</h3>
+        <p>
+          <ul>
+            <li>현실세계의 업무적인 프로세스를 컴퓨터 세계로 DB 화 하기 위한 과정</li>
+            <li>설계 순서: 요구조건 분석 >> <span class="emp">개념적 설계</span> >> <span class="emp">논리적 설계</span> >> <span class="emp">물리적 설계</span> >> 구현 >> 운영 >> 감시 및 개선, 유지보수</li>
+            <li>요구조건 분석시, 업무 프로세스를 토대로 요구조건 명세서를 작성한다</li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <h3>개념적 설계</h3>
+        <p>
+          현실세계를 개념적으로 표현. 개체(Entity), 속성(Attribute), 관계(Relationship) 정의를 통해 수립. ER 다이어그램 산출된다.
+        </p>
+      </li>
+      <li>
+        <h3>논리적 설계</h3>
+        <p>
+          개념 모델을 참고하여 목표 DBMS 에 맞춰 논리적 모델로 설계. 관계형, 계층형, 망형 표 or 매트릭스로 구성하는데, 일반적으로 관계형 테이블이 많이 사용된다.
+        </p>
+      </li>
+      <li>
+        <h3>물리적 설계</h3>
+        <p>
+          실제 저장장치에 저장될 레코드 양식 설계 및 물리적 구조 데이터 표현
+        </p>
+      </li>
+      <li>
+        <h3>관계형 릴레이션(Table) 구성요소</h3>
+        <p>
+          <ul>
+            <li>릴레이션, 테이블: 하나의 Entity 를 의미(학생, 과목, 교수 테이블 등)</li>
+            <li>속성, 컬럼, 도메인, 차수: 속성 컬럼은 한 개체의 구체적인 속성을 나타낸 것이고, Domain 은 하나의 속성에 나타날 수 있는 값들의 범위(집합)을 정의한다. Degree 는 속성들의 갯수</li>
+            <li>튜플, 카디널리티: Tuple 은 행 한줄, 즉 구체적인 하나의 개체를 나타내고 Cardinality 는 특정 속성에 대한 튜플들의 수를 나타낸다. 기본키에 대한 카디널리티는 모든 행을 카운트한 결과이다(성별은 2)</li>
+            <li>기본키(Primary key): 구별자. 한 튜플의 유일한 속성값</li>
+            <li>내포: Relation Intension(Relation Scheme). 하나의 릴레이션으로 규정되는 어떤 개체의 일반적인 속성(Attribute)이나 구조, 틀을 의미한다</li>
+            <li>외연: Relation Extension(Relation Instance). 개체의 내포를 기반으로 하는 실제 인스턴스의 집합. 총 개수. 튜플들의 집합이나 개수를 의미한다.</li>
+            <p>* 예를 들어 '사람' 개체를 설명할 때, 내포로는 '이성적인 동물' 로, 외연으로는 '철수, 영희, 맹구 ...' 등으로 설명할 수 있다.</p>
+            <li>NULL: 정보의 부재를 나타내기 위해 사용하는 특수한 '데이터 값'. 공백이나 0(zero) 를 의미하는 것이 아니다.</li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <h3>릴레이션의 성질</h3>
+        <p>
+          <ul>
+            <li>시간에 따라 튜플들의 개수(카디널리티)나 값은 변할 수 있지만, 속성(Attribute)들의 개수(Degree)나 값은 변하지 않는다</li>
+            <li>각 튜플들은 모두 상이하다 >> 개체무결성, 튜플의 유일성(기본키 등). 이러한 특성은 튜플 식별의 기본이 된다</li>
+            <li>튜플 간, 속성 간에는 순서가 없다</li>
+            <li>속성들의 각 값(도메인)은 논리적으로 더 이상 분해할 수 없는 원자값이어야 한다(제1정규형)</li>
+          </ul>
+        </p>
+      </li>
+    </ol>
+  </article>
+</body>
+</html>
