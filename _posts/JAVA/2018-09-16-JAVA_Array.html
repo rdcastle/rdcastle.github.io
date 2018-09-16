@@ -1,0 +1,116 @@
+---
+layout: post
+title: "배열"
+subtitle:
+date: 2018-09-16
+author: RDcastle
+category: JAVA
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    h3 {
+      color: Orchid;
+    }
+
+    .emp {
+      color: red;
+      font-style: italic;
+    }
+
+    pre{
+      background-color: Orchid; color: black; font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <p>
+      <h3>배열의 선언과 생성, 초기화, 길이, 출력</h3>
+      <ul>
+        <li> <strong>선언</strong>: <span class="emp">타입[] [배열명]</span></li>
+        <li> <strong>생성</strong>: <span class="emp">타입[] [배열명] = new 타입[배열 길이]</span> or 선언 후 배열 할당</li>
+        <li> <strong>초기화</strong>: 본래는 반복문을 이용해 인덱스마다 초기화해야 한다. 그러나 선언과 동시에 초기화가 가능한데 이때 'new 타입[]' 부분은 생략 가능, 단 선언 이후 초기화하려면 꼭 포함해야 한다</li>
+        <li> 매개변수로 넘어가는 배열을 선언하고 초기화하는 경우, 정의 시에 'new 타입[]' 형식을 꼭 포함한다
+          <pre>
+            int add(int[] arr) { /* 내용 생략 */}     // add 메서드 정의
+
+            int result = add(new int[]{ 100, 90, 80, 70, 60 });
+            // int result = add({ 100, 90, 80, 70, 60 });   // 에러!
+          </pre>
+        </li>
+        <li> <strong>길이</strong>: 선언 및 초기화 시에 정의하며, 이후 바꿀 수 없기 때문에 상수이다. 만약 배열의 길이를 바꾸고 싶다면 새로운 긴 배열을 만들어서 데이터를 옮겨담으면 된다(배열의 복사). 애초에 충분한 길이도 정의하는게 최고</li>
+        <li> 한번 선언된 배열의 길이는 바꿀 수 없으나, 할당된 길이 내에서 그 저장된 내용을 바꾸는 것은 가능하다</li>
+        <li> 배열의 길이는 '0' 도 가능하다. 길이를 0 으로 정의하거나 초기화 {} 안에 아무 값도 넣지 않으면 된다. 이는 배열은 만들어졌으나 데이터를 할당할 공간은 없다는 의미인데, 본래 변수(참조변수, 배열명)가
+         'null' 로 초기화되는 일반적인 경우와는 다르게 '아무 데이터도 없지만 배열이 할당되었다' 는 의미를 가진다(아무 데이터가 없다는 의미에서는 일맥상통)</li>
+        <li> 배열 길이 확인하기: 자바에서 <span class="emp">[배열명].length</span> 은 저장된 배열의 길이를 반환한다.</li>
+        <li> <strong>출력</strong>: 위 메서드로 배열 크기를 구하여 반복문을 통해 출력하거나, 더 간편하게는 <span class="emp">Arrays.toString([배열명])</span> 메서드를 활용한다(import java.util.*; 필요, 출력 메서드에 대입). 그러면 배열의 모든 요소를
+        <div class="emp"> [첫번째 요소, 두번째 요소, 세번째 요소, ...] </div> 형식으로 출력한다</li>
+        <li> 일반 출력 메서드에 배열명만을 대입해서 출력하면 당연하게도 참조하는 주소값이 출력될 것이고, 다만 <strong><em>char[] 배열(문자열)을 println() 메서드로 출력하는 경우</em></strong> 저장된 배열의 내용이 순차적으로 출력된다(문자열 출력!)</li>
+        <li> <strong>배열의 복사</strong>: 길이 구하기와 반복문을 통해 새로운 배열을 정의하고 복사한다(주소값까지 새로운 할당공간으로 변환). 기존의 배열은 GC 에 의해 회수된다</li>
+        <li> System 클래스의 System.arraycopy() 메서드를 활용하면 지정된 범위의 값들을 한 번에 통째로 복사한다. 연속적으로 저장되는 배열의 특성으로 인함. 형식은 다음과 같다
+        <div class="emp"> System.arraycopy([복사할 배열명], [복사할 배열의 첫번째 인덱스], [이전할 배열명], [이전할 배열의 첫번째 인덱스], [복사할 배열의 길이]);</div> 이전할 배열의 사이즈가 충분치 못하면 ArrayIndexOutOfBoundsException 에서가 발생한다</li>
+      </ul>
+    </p>
+    <p>
+      * 배열 출력, 배열 복사 예제
+      <pre>
+        <code>
+import java.util.Arrays;
+
+public class ArrayEx4 {
+
+	public static void main(String[] args) {
+		// 출력하기: 반복문, Arrays.toString()
+		/*int[] aaa = { 1, 2, 3, 4, 5 };
+
+		for (int i=0;i&lt;aaa.length;i++) {
+			System.out.println(aaa[i]);
+		}
+		// int 형의 경우 toString 메서드를 사용하지 않으면 주소값만 출력됨
+		System.out.println(Arrays.toString(aaa));*/
+
+		char[] abc = { 'A', 'B', 'C', 'D' };
+		char[] num = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+		System.out.println(abc);
+		System.out.println(num);
+
+		// 배열 abc 와 num 을 붙여서 하나의 배열(result)로 만든다
+		char[] result = new char[abc.length + num.length];
+		System.arraycopy(abc, 0, result, 0, abc.length);
+		System.arraycopy(num, 0, result, abc.length, num.length);
+		System.out.println(result);
+
+		// 배열 abc 를 배열 num 의 첫 번째 위치부터 배열 abc 의 길이만큼 복사
+		System.arraycopy(abc, 0, num, 0, abc.length);
+		System.out.println(num);
+
+		// num 의 인덱스 6 위치에 3개를 복사
+		System.arraycopy(abc, 0, num, 6, 3);
+		System.out.println(num);
+
+	}
+
+}
+        </code>
+      </pre>
+    </p>
+    <p>
+      출력 결과
+      <pre>
+ABCD
+0123456789
+ABCD0123456789
+ABCD456789
+ABCD45ABC9
+      </pre>
+    </p>
+  </article>
+</body>
+
+</html>
