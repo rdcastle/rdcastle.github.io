@@ -1,0 +1,54 @@
+---
+layout: post
+title: "HTML 주석쓰기"
+subtitle:
+date: 2018-09-16
+author: RDcastle
+category: HTML
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    div{
+      font-weight: bold; color: Orchid;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <p>
+      HTML 에서 주석 쓰기는 다음과 같이 한다. <div><code>&lt;!-- [주석] -- &gt;</code></div>
+    </p>
+    <p>
+      * 전체코드 상에서는 다음과 같이 한다(스크립트 내에서의 주석도 포함).
+      <div>
+        <pre>
+          <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+              &lt;head&gt;
+                &lt;!-- 주석입니다 --&gt;
+                &lt;script&gt;
+                  // 주석입니다
+                  /*
+                  주석입니다
+                  */
+                &lt;script&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+                &lt;!-- &lt;주석입니다&gt; --&gt;
+              &lt;/body&gt;
+            &lt;/html&gt;
+          </code>
+        </pre>
+      </div>
+    </p>
+  </article>
+</body>
+
+</html>
