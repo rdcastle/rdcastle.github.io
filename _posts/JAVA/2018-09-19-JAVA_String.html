@@ -1,0 +1,62 @@
+---
+layout: post
+title: "String"
+subtitle:
+date: 2018-09-19
+author: RDcastle
+category: JAVA
+finished: true
+---
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    h3 {
+      color: Orchid;
+    }
+
+    .emp {
+      color: red;
+      font-style: italic;
+    }
+
+    pre{
+      background-color: Orchid; color: black; font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <h1>char 배열과 String 클래스의 차이점</h1>
+    <p>
+      문자를 연이어 늘어놓은 것이라는 의미에서 같지만, String 은 단순 배열이 아닌 클래스로서 유용한 기능(메서드)이 추가된 것이다
+      <h3>String 클래스의 주요 메서드</h3>
+      <ul>
+        <li>char charAt(int index): 문자열에서 해당 위치(index)에 있는 문자 반환</li>
+        <li>int length(): 문자열의 길이 반환</li>
+        <li>String substring(int from, int to): 해당 범위에 있는 문자열 반환(to 는 범위에 포함되지 않음)</li>
+        <li>boolean equals(String str): 문자열의 내용과 입력한 문자열이 같은지 확인. 결과는 boolean으로</li>
+        <li>char[] toCharArray(): 문자열을 문자배열(char[])로 변환해서 반환</li>
+      </ul>
+    </p>
+    <h1>문자열을 커맨드 라인을 통해 입력받기</h1>
+    <p>
+      커맨드 라인에서 실행할 프로그램의 main 메서드가 담긴 클래스의 이름 다음에 투입하고자 하는 문자열을 입력한다. 구분은 공백으로 한다<br>
+      main 메서드의 매개변수로 사이즈가 정해지지 않은 String 배열 args 가 선언되어 있으므로, 넘겨받은 문자열이 몇 개가 되었든 저장 가능하다.
+      다만, 배열은 선언되었지만 아무런 값이 넘어오지 않은 경우 null 로 저장되어 에러가 발생될 것이지만, JVM 은 크기가 0 인 배열을 생성해서
+      자동적으로 args 에 전달하도록 구현되어 있으므로 문제가 없다
+    </p>
+    <p>
+      args 로 입력되는 데이터는 무조건 문자열로만 저장되기 때문에, main 함수 내부에서 원하는 자료형으로 변환하는 과정이 필요하다
+      <ul>
+        <li>int 로 변환: Integer.parseInt(args[0]);</li>
+        <li>char 로 변환: char op = args[1].charAt(0);</li>
+      </ul>
+    </p>
+  </article>
+</body>
+
+</html>
