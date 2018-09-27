@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "조건문, Date 클래스, 반복문, 배열"
+title: "JSP 게시판 만들기 1"
 subtitle:
 date: 2018-09-21
 author: RDcastle
-category: JavaScript
+category: JSP_Model1
 finished: true
 ---
 
@@ -53,11 +53,12 @@ finished: true
       <li>
         <h3>로그인 페이지 디자인</h3>
         <p>먼저, 메인 페이지인 index.jsp 가 호출되면, 스크립트문에 의해 login.jsp 페이지로 넘어가도록 한다. 그러므로 먼저 할 것은 login.jsp 페이지 디자인이다</p>
-        <h4>&lt;meta name="viewport" content="width=device-width" initial-scale="1"&gt;</h4>
-        <p><strong>viewport</strong>는 여러 브라우저 및 디바이스에서 화면에 보여지는 기본영역을 의미한다. 이는 환경에 따라 동적으로 변화할 필요가 있으므로,
+        <h4>&lt;meta name="viewport" content="width=device-width" initial-scale="1"&gt; - 반응형 웹을 위한 메타 태그</h4>
+        <p><strong>viewport</strong>는 여러 브라우저 및 디바이스에서 화면에 보여지는 기본영역을 의미한다. 이는 환경에 따라 동적으로 변화할 필요가 있으므로(특히 IOS 에서),
         meta 태그 내에서의 구체적인 묘사를 통해 이를 가능하게 해야 한다.<br><strong>content</strong>에서는 viewport 가 어떤 식으로 변화할 지 설명해주는데,
         <strong>width=device-width</strong>는 너비를 기준으로 브라우저나 장치에 맞추는 설정이다.<br><strong>initial-scale</strong>은 초기화면 배율인데, 1 은 100% 를 의미한다</p>
-        <h4></h4>
+        <h4>&lt;link rel="stylesheet" href="css/bootstrap.css"&gt;</h4>
+        <p>'본 페이지는 스타일 태그를 참조하는데, 같은 폴더의 "css/bootstrap.css" 를 그 대상으로 하겠다는 의미'</p>
       </li>
     </ol>
 
